@@ -1,4 +1,4 @@
-                       body {
+            body {
                 font-family: sans-serif;
                 margin: 0px;
             }
@@ -48,4 +48,20 @@
 
             .container2:hover {
                 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+            .topnav input[type=text] {
+                float: right;
+                padding: 6px;
+                border: none;
+                margin-top: 8px;
+                margin-right: 9px;
+                font-size: 17px;
+            }
+
+            .inputbox {
+                float: right;
+                margin-right: 0px;
+                margin-top: 8px;
+                border-radius: 0px;
             }
