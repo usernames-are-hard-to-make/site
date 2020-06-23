@@ -1,9 +1,20 @@
+<html>
+    
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+        
     <body>
         
         <div class="topnav">
             <a class="active" href="index.html">Home</a>
             <a href="contacts.html">Contacts</a>
             <a href="about.html">About</a>
+            <input type="text" placeholder="Search" class="inputbox" id="myinput">
+            <button class="inputbox" type="submit" style="width: 33px; height: 32px"
+            onclick="myfunction()"><i class="fa fa-search"></i></button>
         </div>
         
         <div class="container">
@@ -36,9 +47,11 @@
     </body>
     
     <script>
-        h = "Hello"
-        s = " there"
-        alert(h + s)
+        function myfunction() {
+            myinput = document.getElementById("myinput");
+            alert(myinput.value);
+            myinput.value = "";
+            }
     </script>
 
 </html>
