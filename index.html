@@ -12,7 +12,7 @@
             <a class="active" href="index.html">Home</a>
             <a href="contacts.html">Contacts</a>
             <a href="about.html">About</a>
-            <input type="text" placeholder="Search" class="inputbox" id="myinput">
+            <input type="text" placeholder="Search" class="inputbox" id="myinput" style="height: 32px">
             <button class="inputbox" type="submit" style="width: 33px; height: 32px"
             onclick="myfunction()"><i class="fa fa-search"></i></button>
         </div>
@@ -25,7 +25,9 @@
         </div>
         
         <div style="float: left; margin-left: 20px; padding-top: 10px">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+            picture-in-picture" allowfullscreen></iframe>
         </div>
         
         <style>
@@ -48,8 +50,18 @@
     
     <script>
         function myfunction() {
+            
+            data = [{pokemon:"bulbasaur",type:"grass"},{pokemon:"pikachu",type:"electric"},{pokemon:"charmander",type:"fire"}];
+            
             myinput = document.getElementById("myinput");
-            alert(myinput.value);
+            
+            for (i=0;i<3;i++) {
+                if (data[i]["pokemon"] == myinput.value.toLowerCase()) {
+                    alert(data[i]['type']);
+                    break;
+                }
+            }
+            
             myinput.value = "";
             }
     </script>
