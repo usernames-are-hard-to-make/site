@@ -4,6 +4,7 @@
         <title>Home</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="pokedex.json"></script>
     </head>
         
     <body>
@@ -12,14 +13,16 @@
             <a class="active" href="index.html">Home</a>
             <a href="contacts.html">Contacts</a>
             <a href="about.html">About</a>
-            <input type="text" placeholder="Search" class="inputbox" id="myinput" style="height: 32px">
-            <button class="inputbox" type="submit" style="width: 33px; height: 32px"
-            onclick="myfunction()"><i class="fa fa-search"></i></button>
+            <input type="text" placeholder="Search" class="inputbox" id="myinput" style="height:
+            31px">
+            <button class="inputbox" type="submit" style="width: 32px; height: 31px" onclick="myfunction()"><i class="fa fa-search"></i></button>
         </div>
         
         <div class="container">
             <h1>Home page</h1>
             <p>This is my home page.</p>
+            <div id="info"></div>
+            
             <a href="https://www.google.com" target="_blank">Link</a><br>
             <img src="image.jpg" style="width: 350px; padding: 10px;">
         </div>
@@ -49,21 +52,32 @@
     </body>
     
     <script>
+        
         function myfunction() {
             
-            data = [{pokemon:"bulbasaur",type:"grass"},{pokemon:"pikachu",type:"electric"},{pokemon:"charmander",type:"fire"}];
-            
             myinput = document.getElementById("myinput");
+            mydiv = document.getElementById("info");
             
-            for (i=0;i<3;i++) {
-                if (data[i]["pokemon"] == myinput.value.toLowerCase()) {
-                    alert(data[i]['type']);
+            for (i=0;i<data.length;i++) {
+                if (data[i]['name']['english'].toLowerCase() == myinput.value.toLowerCase()) {
+                    
+                    mydiv.innerHTML = "<h2>" + data[i]['name']['english'] + "</h2><h3>" + data[i]['type'][0] + "</h3>"
                     break;
                 }
             }
             
             myinput.value = "";
+        }
+
+        var input = document.getElementById("myinput");
+
+        input.addEventListener("keyup", function myfunction() {
+            if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("myBtn").click();
             }
+        });
+
     </script>
 
 </html>
