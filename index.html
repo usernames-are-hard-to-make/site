@@ -18,13 +18,21 @@
             <button class="inputbox" type="submit" style="width: 32px; height: 31px" onclick="myfunction()"><i class="fa fa-search"></i></button>
         </div>
         
+        <div class="icon-bar">
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+            <a href="#" class="google"><i class="fa fa-google"></i></a> 
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            <a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
+        </div>
+        
         <div class="container">
             <h1>Home page</h1>
-            <p>This is my home page.</p>
+            <p>Search for pokemon to find their type.</p>
             <div id="info"></div>
             
             <a href="https://www.google.com" target="_blank">Link</a><br>
-            <img src="image.jpg" style="width: 350px; padding: 10px;">
+            <img src="image.jpg" style="width: 350px; padding: 5px;">
         </div>
         
         <div style="float: left; margin-left: 20px; padding-top: 10px">
@@ -53,6 +61,15 @@
     
     <script>
         
+        var input = document.getElementById("myinput");
+
+            input.addEventListener("keyup", function(event) {
+             if (event.keyCode === 13) {
+              event.preventDefault();
+               myfunction();
+                }
+            });
+        
         function myfunction() {
             
             myinput = document.getElementById("myinput");
@@ -62,6 +79,9 @@
                 if (data[i]['name']['english'].toLowerCase() == myinput.value.toLowerCase()) {
                     
                     mydiv.innerHTML = "<h2>" + data[i]['name']['english'] + "</h2><h3>" + data[i]['type'][0] + "</h3>"
+                    break;
+                } else {
+                    alert ("No results found");
                     break;
                 }
             }
